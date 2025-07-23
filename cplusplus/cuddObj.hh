@@ -408,6 +408,7 @@ public:
     ZDD operator|=(const ZDD& other);
     ZDD operator-(const ZDD& other) const;
     ZDD operator-=(const ZDD& other);
+    ZDD operator~() const;
     int Count() const;
     double CountDouble() const;
     ZDD Product(const ZDD& g) const;
@@ -416,6 +417,7 @@ public:
     ZDD Divide(const ZDD& g) const;
     ZDD WeakDivF(const ZDD& g) const;
     ZDD DivideF(const ZDD& g) const;
+    ZDD Complement() const;
     double CountMinterm(int path) const;
     BDD PortToBdd() const;
     ZDD Ite(const ZDD& g, const ZDD& h) const;
@@ -495,6 +497,7 @@ public:
     ZDD zddVar(int index) const;
     ZDD zddOne(int i) const;
     ZDD zddZero(void) const;
+    ZDD makeZddNode(int index, ZDD low, ZDD high) const;
     ADD addNewVarAtLevel(int level) const;
     BDD bddNewVarAtLevel(int level) const;
     void zddVarsFromBddVars(int multiplicity) const;

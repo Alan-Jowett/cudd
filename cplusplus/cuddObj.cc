@@ -1181,6 +1181,15 @@ ZDD::operator-=(
 } // ZDD::operator-=
 
 
+ZDD
+ZDD::operator~() const
+{
+  DdNode *result = Cudd_zddDiff(p->manager, p->manager->univ[0], node);
+  checkReturnValue(result);
+  return ZDD(p, result);
+} // ZDD::operator~
+
+
 // ---------------------------------------------------------------------------
 // Members of class Cudd
 // ---------------------------------------------------------------------------
@@ -1570,6 +1579,19 @@ Cudd::zddZero() const
     return ZDD(p, result);
 
 } // Cudd::zddZero
+
+
+ZDD
+Cudd::makeZddNode(
+  int index,
+  ZDD T,
+  ZDD E) const
+{
+  if (T == zddZero()) { return E;}
+  DdNode *result = cuddUniqueInterZdd(p->manager, index, T.node, E.node);
+  checkReturnValue(result);
+  return ZDD(p, result);
+} // Cudd::makeZddNode
 
 
 void
@@ -5880,6 +5902,15 @@ ZDD::DivideF(
     return ZDD(p, result);
 
 } // ZDD::DivideF
+
+
+ZDD
+ZDD::Complement() const
+{
+  DdNode *result = Cudd_zddComplement(p->manager, node);
+  checkReturnValue(result);
+  return ZDD(p, result);
+} // ZDD::Complement
 
 
 MtrNode *
