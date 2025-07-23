@@ -916,6 +916,28 @@ ADD::operator|=(
 
 } // ADD::operator|=
 
+ADD
+ADD::operator^(
+  const ADD& other) const
+{
+  DdManager *mgr = checkSameManager(other);
+  DdNode *result = Cudd_addApply(mgr,Cudd_addXor,node,other.node);
+  checkReturnValue(result);
+  return ADD(p, result);
+} // ADD::operator^
+
+ADD
+ADD::operator^=(
+  const ADD& other)
+{
+  DdManager *mgr = checkSameManager(other);
+  DdNode *result = Cudd_addApply(mgr,Cudd_addXor,node,other.node);
+  checkReturnValue(result);
+  Cudd_Ref(result);
+  Cudd_RecursiveDeref(mgr,node);
+  node = result;
+  return *this;
+} // ADD::operator^=
 
 bool
 ADD::IsZero() const
@@ -1537,6 +1559,20 @@ Cudd::addZero() const
     return ADD(p, result);
 
 } // Cudd::addZero
+
+
+ADD
+Cudd::makeAddNode(
+  int index,
+  ADD T,
+  ADD E) const
+{
+  // Reduction Rule 1
+  if (T == E) { return T; }
+  DdNode *r = cuddUniqueInter(p->manager, index, T.node, E.node);
+  checkReturnValue(r);
+  return ADD(p, r);
+} // Cudd::makeAddNode
 
 
 ADD
@@ -5696,6 +5732,26 @@ BDD::PickOneMinterm(
     return BDD(p, result);
 
 } // BDD::PickOneMinterm
+
+
+void
+ADD::PickOneCube(
+  char * string) const
+{
+  DdManager *mgr = p->manager;
+  int result = Cudd_addPickOneCube(mgr, node, string);
+  checkReturnValue(result);
+} // ADD::PickOneCube
+
+
+ADD
+ADD::PickOneMintermSet(
+  const ADD& choice) const
+{
+  DdNode *result = Cudd_addPickOneMintermSet(p->manager, node, choice.node);
+  checkReturnValue(result);
+  return ADD(p, result);
+} // ADD::PickOneMintermSet
 
 
 BDD

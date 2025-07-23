@@ -323,6 +323,8 @@ public:
     ADD operator&=(const ADD& other);
     ADD operator|(const ADD& other) const;
     ADD operator|=(const ADD& other);
+    ADD operator^(const ADD& other) const;
+    ADD operator^=(const ADD& other);
     bool IsZero() const;
     ADD ExistAbstract(const ADD& cube) const;
     ADD UnivAbstract(const ADD& cube) const;
@@ -373,6 +375,8 @@ public:
     ADD Triangle(const ADD& g, std::vector<ADD> z) const;
     ADD Eval(int * inputs) const;
     bool EqualSupNorm(const ADD& g, CUDD_VALUE_TYPE tolerance, int pr) const;
+    void PickOneCube(char * string) const;
+    ADD PickOneMintermSet(const ADD& choice) const;
 
 }; // ADD
 
@@ -492,6 +496,7 @@ public:
     ADD addVar(int index) const;
     ADD addOne(void) const;
     ADD addZero(void) const;
+    ADD makeAddNode(int index, ADD T, ADD E) const;
     ADD constant(CUDD_VALUE_TYPE c) const;
     ADD plusInfinity(void) const;
     ADD minusInfinity(void) const;
