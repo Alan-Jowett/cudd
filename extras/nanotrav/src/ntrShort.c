@@ -48,7 +48,7 @@
 */
 
 #include "ntr.h"
-#include "cudd/cuddInt.h"
+#include "cuddInt.h"
 
 /*---------------------------------------------------------------------------*/
 /* Constant declarations                                                     */

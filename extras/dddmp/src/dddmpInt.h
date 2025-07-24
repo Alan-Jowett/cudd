@@ -37,7 +37,7 @@
 #define _DDDMPINT
 
 #include "cudd/dddmp.h"
-#include "cudd/cuddInt.h"
+#include "cuddInt.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -37,7 +37,7 @@
 /* Nested includes                                                           */
 /*---------------------------------------------------------------------------*/
      
-#include "cudd/util/util.h"
+#include "util/util.h"
 #include "cudd/cudd.h"
 
 #ifdef __cplusplus

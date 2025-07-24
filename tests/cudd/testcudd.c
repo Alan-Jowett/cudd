@@ -49,7 +49,7 @@
 
 */
 
-#include "cudd/util/util.h"
+#include "util/util.h"
 #include "cudd/cuddInt.h"
 
 

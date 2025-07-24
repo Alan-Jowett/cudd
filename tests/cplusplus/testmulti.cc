@@ -47,7 +47,7 @@
 
 */
 
-#include "cudd/config.h"
+#include "config.h"
 #include "cudd/cudd.hpp"
 #include <cstdlib>
 #include <iostream>

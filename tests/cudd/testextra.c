@@ -43,7 +43,7 @@
 
  */
 
-#include "cudd/util/util.h"
+#include "util/util.h"
 #include "cudd/epd.h"
 #include "cudd/cudd.h"
 #include <setjmp.h>

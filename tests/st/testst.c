@@ -41,8 +41,8 @@
 
 */
 
-#include "cudd/util/util.h"
-#include "cudd/st.h"
+#include "util/util.h"
+#include "st.h"
 
 /**
    @brief Just some struct type.
