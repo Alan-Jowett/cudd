@@ -16,7 +16,7 @@ compile_commands.json
 CMakeLists.txt.user
 Testing/
 
-# Compilation database (common typo fixed)
+# Compilation database
 compile_commands.json
 
 # OS or editor-specific files (optional, but recommended)
