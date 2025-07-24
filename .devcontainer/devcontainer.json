@@ -12,6 +12,17 @@
         "ms-vscode.cpptools",
         "ms-vscode.cmake-tools"
       ]
+    },
+    "c_cpp_properties": {
+      "configurations": [
+        {
+          "name": "Linux",
+          "compileCommands": [
+            "${workspaceFolder}/compile_commands.json"
+          ]
+        }
+      ],
+      "version": 4
     }
   }
 }

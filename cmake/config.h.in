@@ -4,13 +4,13 @@
 #cmakedefine AC_APPLE_UNIVERSAL_BUILD
 
 /* Define to 1 if you have the <assert.h> header file. */
-#cmakedefine01 HAVE_ASSERT_H
+#define HAVE_ASSERT_H 1
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #cmakedefine01 HAVE_DLFCN_H
 
 /* Define to 1 if you have the <float.h> header file. */
-#cmakedefine01 HAVE_FLOAT_H
+#define HAVE_FLOAT_H 1
 
 /* Define to 1 if you have the `gethostname' function. */
 #cmakedefine01 HAVE_GETHOSTNAME
@@ -25,13 +25,13 @@
 #cmakedefine HAVE_IEEE_754
 
 /* Define to 1 if you have the <inttypes.h> header file. */
-#cmakedefine01 HAVE_INTTYPES_H
+#define HAVE_INTTYPES_H 1
 
 /* Define to 1 if you have the <limits.h> header file. */
-#cmakedefine01 HAVE_LIMITS_H
+#define HAVE_LIMITS_H 1
 
 /* Define to 1 if you have the <math.h> header file. */
-#cmakedefine01 HAVE_MATH_H
+#define HAVE_MATH_H 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #cmakedefine01 HAVE_MEMORY_H
@@ -58,7 +58,7 @@
 #cmakedefine01 HAVE_STDINT_H
 
 /* Define to 1 if you have the <stdlib.h> header file. */
-#cmakedefine01 HAVE_STDLIB_H
+#define HAVE_STDLIB_H 1
 
 /* Define to 1 if you have the `strchr' function. */
 #cmakedefine01 HAVE_STRCHR
@@ -67,7 +67,7 @@
 #cmakedefine01 HAVE_STRINGS_H
 
 /* Define to 1 if you have the <string.h> header file. */
-#cmakedefine01 HAVE_STRING_H
+#define HAVE_STRING_H 1
 
 /* Define to 1 if you have the `strstr' function. */
 #cmakedefine01 HAVE_STRSTR
@@ -100,7 +100,7 @@
 #cmakedefine01 HAVE_WORKING_THREAD
 
 /* Define to 1 if the system has the type `_Bool'. */
-#cmakedefine01 HAVE__BOOL
+#define HAVE__BOOL 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
@@ -110,7 +110,7 @@
 #define PACKAGE "@CMAKE_PROJECT_NAME@"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "Fabio@Colorado.EDU"
+#define PACKAGE_BUGREPORT "https://github.com/cuddorg/cudd/issues"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "@CMAKE_PROJECT_NAME@"
