@@ -463,7 +463,7 @@ public:
 /**
    @brief Default error handler.
 */
-extern void defaultError(std::string message);
+CUDD_API void defaultError(std::string message);
 
 
 /**
