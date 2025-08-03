@@ -30,11 +30,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Settings
 # ============================================================================ #
 
-option(CUDD_CONFIGURE_SYSTEM "Configure system variables" OFF)
+option(CUDD_RECONFIGURE_SYSTEM "Configure system variables" OFF)
 option(CUDD_BUILD_CPP_API "Build C++ API" ON)
 option(CUDD_BUILD_SHARED_LIBS "Build CUDD as a shared library" OFF)
 option(CUDD_BUILD_WITH_STATS "Build CUDD with statistics" OFF)
-option(CUDD_BUILD_DDDMP "Build DDDMP Library)" OFF)
+option(CUDD_BUILD_DDDMP "Build DDDMP Library" OFF)
 option(CUDD_BUILD_TESTS "Build CUDD tests" OFF)
 option(CUDD_BUILD_WITH_SYSTEM_QSORT "Build with system qsort" OFF)
 
@@ -66,7 +66,7 @@ endif()
 # System feature support is extensive on modern platforms,
 # so reconfiguration is disabled by default for efficiency.
 # You can re-enable it manually if targeting a non-standard or legacy system.
-if(CUDD_CONFIGURE_SYSTEM)
+if(CUDD_RECONFIGURE_SYSTEM)
   include(cmake/cudd_configure_system.cmake)
 endif()
 
@@ -186,10 +186,10 @@ target_link_libraries(cudd PUBLIC ${MATH_LIBRARY})
 
 # Include directories (build and install time)
 target_include_directories(cudd PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
-  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
-  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/extras/dddmp/include>
-  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/extras/dddmp/src>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/extras/dddmp/include>
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/extras/dddmp/src>
   $<INSTALL_INTERFACE:include>
 )
 
