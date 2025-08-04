@@ -182,9 +182,12 @@ endif()
 # Define the cudd library target
 if(CUDD_BUILD_SHARED_LIBS)
   add_library(cudd SHARED ${CUDD_SOURCES})
+  add_library(cudd::shared ALIAS cudd)
 else()
   add_library(cudd STATIC ${CUDD_SOURCES})
+  add_library(cudd::static ALIAS cudd)
 endif()
+add_library(cudd::cudd ALIAS cudd)
 
 # Link the math library (libm)
 find_library(MATH_LIBRARY m REQUIRED)
@@ -198,6 +201,7 @@ target_include_directories(cudd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/extras/dddmp/src>
   $<INSTALL_INTERFACE:include>
 )
+target_compile_definitions(cudd PRIVATE CUDD_EXPORTS)
 
 # Define properties for the library
 set_target_properties(cudd PROPERTIES
