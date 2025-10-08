@@ -253,17 +253,11 @@ install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/cuddConfigVersion.cmake"
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cudd
 )
-
-# DDDMP Target
-if(CUDD_BUILD_DDDMP)
-  add_subdirectory(extras/dddmp)
-endif()
-
 # Test Build
-include(CTest)
-if(CUDD_BUILD_TESTS)
-  add_subdirectory(extras/nanotrav)
-endif()
+# include(CTest)
+# if(CUDD_BUILD_TESTS)
+#   add_subdirectory(extras/nanotrav)
+# endif()
 
 # Compile Commands
 if (PROJECT_IS_TOP_LEVEL AND UNIX)

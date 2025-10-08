@@ -39,7 +39,6 @@ jobs:
         run: |
           cmake -S . -B /tmp/build \
             -DCUDD_BUILD_WITH_STATS=ON \
-            -DCUDD_BUILD_DDDMP=ON \
             -DCUDD_BUILD_TESTS=ON \
             -DCUDD_BUILD_SHARED_LIBS=${{ matrix.build_shared_libs }}
 
