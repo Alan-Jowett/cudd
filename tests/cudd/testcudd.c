@@ -49,9 +49,8 @@
 
 */
 
-#include "util/util.h"
-#include "cudd/cuddInt.h"
-
+#include "util.h"
+#include "cuddInt.h"
 
 /*---------------------------------------------------------------------------*/
 /* Constant declarations                                                     */

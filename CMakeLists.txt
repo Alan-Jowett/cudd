@@ -75,95 +75,95 @@ endif()
 
 # Public header directories
 set(CUDD_PUBLIC_HEADERS
-  "include/cudd/cudd.h"
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/cudd/cudd.h"
 )
 set(CUDD_SOURCES
-  "src/cuddAddAbs.c"
-  "src/cuddBddCorr.c"
-  "src/cuddGenetic.c"
-  "src/cuddReorder.c"
-  "src/cuddZddGroup.c"
-  "src/cuddAddApply.c"
-  "src/cuddBddIte.c"
-  "src/cuddGroup.c"
-  "src/cuddSat.c"
-  "src/cuddZddIsop.c"
-  "src/cuddAddFind.c"
-  "src/cuddBridge.c"
-  "src/cuddHarwell.c"
-  "src/cuddSign.c"
-  "src/cuddZddLin.c"
-  "src/cuddAddInv.c"
-  "src/cuddCache.c"
-  "src/cuddInit.c"
-  "src/cuddSolve.c"
-  "src/cuddZddMisc.c"
-  "src/cuddAddIte.c"
-  "src/cuddCheck.c"
-  "src/cuddInteract.c"
-  "src/cuddSplit.c"
-  "src/cuddZddPort.c"
-  "src/cuddAddNeg.c"
-  "src/cuddClip.c"
-  "src/cuddLCache.c"
-  "src/cuddSubsetHB.c"
-  "src/cuddZddReord.c"
-  "src/cuddAddWalsh.c"
-  "src/cuddCof.c"
-  "src/cuddLevelQ.c"
-  "src/cuddSubsetSP.c"
-  "src/cuddZddSetop.c"
-  "src/cuddAndAbs.c"
-  "src/cuddCompose.c"
-  "src/cuddLinear.c"
-  "src/cuddSymmetry.c"
-  "src/cuddZddSymm.c"
-  "src/cuddAnneal.c"
-  "src/cuddDecomp.c"
-  "src/cuddLiteral.c"
-  "src/cuddTable.c"
-  "src/cuddZddUtil.c"
-  "src/cuddApa.c"
-  "src/cuddEssent.c"
-  "src/cuddMatMult.c"
-  "src/cuddUtil.c"
-  "src/cuddAPI.c"
-  "src/cuddExact.c"
-  "src/cuddPriority.c"
-  "src/cuddWindow.c"
-  "src/cuddApprox.c"
-  "src/cuddExport.c"
-  "src/cuddRead.c"
-  "src/cuddZddCount.c"
-  "src/cuddBddAbs.c"
-  "src/cuddGenCof.c"
-  "src/cuddRef.c"
-  "src/cuddZddFuncs.c"
-  "src/epd.c"
-  "src/mtrBasic.c"
-  "src/mtrGroup.c"
-  "src/st.c"
-  "src/cpu_stats.c"
-  "src/cpu_time.c"
-  "src/cstringstream.c"
-  "src/datalimit.c"
-  "src/pathsearch.c"
-  "src/pipefork.c"
-  "src/prtime.c"
-  "src/safe_mem.c"
-  "src/strsav.c"
-  "src/texpand.c"
-  "src/ucbqsort.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddAbs.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddBddCorr.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddGenetic.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddReorder.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddGroup.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddApply.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddBddIte.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddGroup.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSat.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddIsop.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddFind.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddBridge.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddHarwell.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSign.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddLin.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddInv.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddCache.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddInit.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSolve.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddMisc.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddIte.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddCheck.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddInteract.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSplit.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddPort.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddNeg.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddClip.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddLCache.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSubsetHB.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddReord.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAddWalsh.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddCof.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddLevelQ.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSubsetSP.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddSetop.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAndAbs.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddCompose.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddLinear.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddSymmetry.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddSymm.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAnneal.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddDecomp.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddLiteral.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddTable.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddUtil.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddApa.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddEssent.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddMatMult.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddUtil.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddAPI.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddExact.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddPriority.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddWindow.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddApprox.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddExport.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddRead.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddCount.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddBddAbs.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddGenCof.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddRef.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddZddFuncs.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/epd.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/mtrBasic.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/mtrGroup.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/st.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cpu_stats.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cpu_time.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/cstringstream.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/datalimit.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/pathsearch.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/pipefork.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/prtime.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/safe_mem.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/strsav.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/texpand.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/ucbqsort.c"
 )
 
 if(CUDD_BUILD_CPP_API)
   set(CUDD_PUBLIC_HEADERS
-    "include/cudd/cudd.hpp"
-    "include/cudd/cuddObj.hh"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/cudd/cudd.hpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/cudd/cuddObj.hh"
     ${CUDD_PUBLIC_HEADERS}
   )
   set(CUDD_SOURCES
-    "src/cuddObj.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/cuddObj.cc"
     ${CUDD_SOURCES}
   )
 endif()
@@ -193,7 +193,6 @@ target_include_directories(cudd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
   $<INSTALL_INTERFACE:include>
 )
-target_compile_definitions(cudd PRIVATE cudd_EXPORTS)
 
 # Define properties for the library
 set_target_properties(cudd PROPERTIES
@@ -248,18 +247,19 @@ install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/cuddConfigVersion.cmake"
   DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cudd
 )
+
 # Test Build
-# include(CTest)
-# if(CUDD_BUILD_TESTS)
-#   add_subdirectory(extras/nanotrav)
-# endif()
+include(CTest)
+if(CUDD_BUILD_TESTS)
+  add_subdirectory(extras/nanotrav)
+endif()
 
 # Compile Commands
 if (PROJECT_IS_TOP_LEVEL AND UNIX)
-    # Create symlink to compile_commands.json for IDE to pick it up
-    execute_process(
-        COMMAND ${CMAKE_COMMAND} -E create_symlink
-            ${CMAKE_BINARY_DIR}/compile_commands.json
-            ${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json
-    )
+  # Create symlink to compile_commands.json for IDE to pick it up
+  execute_process(
+    COMMAND ${CMAKE_COMMAND} -E create_symlink
+      ${CMAKE_BINARY_DIR}/compile_commands.json
+      ${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json
+  )
 endif()

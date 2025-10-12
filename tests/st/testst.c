@@ -41,7 +41,7 @@
 
 */
 
-#include "util/util.h"
+#include "util.h"
 #include "st.h"
 
 /**

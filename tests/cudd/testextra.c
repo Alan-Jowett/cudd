@@ -43,10 +43,11 @@
 
  */
 
-#include "util/util.h"
-#include "cudd/epd.h"
-#include "cudd/cudd.h"
+#include "util.h"
+#include "epd.h"
 #include <setjmp.h>
+
+#include <cudd/cudd.h>
 
 /** \cond */
 static int testBdd(int verbosity);

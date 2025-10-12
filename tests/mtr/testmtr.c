@@ -43,8 +43,8 @@
 
 */
 
-#include "cudd/util/util.h"
-#include "cudd/mtrInt.h"
+#include "util.h"
+#include "mtrInt.h"
 
 /*---------------------------------------------------------------------------*/
 /* Variable declarations                                                     */
