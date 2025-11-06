@@ -1,0 +1,75 @@
+name: CodeQL Analysis
+
+on:
+  pull_request:
+    branches: [ main, 4.0.0 ]
+  push:
+    branches: [ main, 4.0.0 ]
+  schedule:
+    # Run CodeQL analysis weekly on Sundays at 2:00 AM UTC
+    - cron: '0 2 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    permissions:
+      # Required for uploading results to GitHub's code scanning dashboard
+      security-events: write
+      # Required for private repositories, or if forking from a private repository
+      contents: read
+      actions: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: c-cpp
+          build-mode: manual
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event_name == 'schedule' && '4.0.0' || github.ref }}
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        # Enable additional security queries beyond the default set
+        queries: +security-and-quality
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake ninja-build
+
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: 'latest'
+
+    - name: Build project
+      run: |
+        # Create build directory
+        mkdir -p build
+        cd build
+        
+        # Configure with CMake
+        cmake .. \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DBUILD_SHARED_LIBS=OFF \
+          -GNinja
+        
+        # Build the project
+        ninja
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{ matrix.language }}"
+        # Upload results even if there are compilation errors
+        upload: always
