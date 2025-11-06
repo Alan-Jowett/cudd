@@ -210,6 +210,9 @@ extern void *MMrealloc(void *, size_t);
 #endif
 extern void MMout_of_memory(size_t);
 extern void (*MMoutOfMemory) (size_t);
+extern int (*MMoutOfMemoryInjector) (size_t);
+extern void MMsetOutOfMemoryInjector(int (*injector)(size_t));
+extern void MMsetOutOfMemoryHandler(void (*handler)(size_t));
 
 extern long util_cpu_time(void);
 extern long util_cpu_ctime(void);
