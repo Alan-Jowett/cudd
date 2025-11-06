@@ -185,6 +185,7 @@ else()
   target_compile_definitions(cudd PUBLIC CUDD_STATIC_DEFINE)
 endif()
 add_library(cudd::cudd ALIAS cudd)
+add_library(Cudd::cudd ALIAS cudd)
 
 cudd_configure_libraries(cudd)
 
