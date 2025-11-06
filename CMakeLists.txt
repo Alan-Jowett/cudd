@@ -189,6 +189,11 @@ add_library(Cudd::cudd ALIAS cudd)
 
 cudd_configure_libraries(cudd)
 
+# Configure Windows-specific analysis tools
+if(WIN32)
+  cudd_configure_msvc_analysis(cudd)
+endif()
+
 # Include directories (build and install time)
 target_include_directories(cudd PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
