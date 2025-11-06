@@ -25,6 +25,15 @@ function(cudd_configure_libraries target_name)
   message(STATUS "Linking with Windows Winsock2 library for networking functions")
 endfunction()
 
+# Configure Windows-specific compiler warnings
+function(cudd_configure_warnings target_name)
+  if(MSVC)
+    # Treat warnings as errors for MSVC
+    target_compile_options(${target_name} PRIVATE /WX)
+    message(STATUS "Configured MSVC to treat warnings as errors")
+  endif()
+endfunction()
+
 # Configure Windows-specific development tools
 function(cudd_configure_dev_tools)
   # Windows doesn't need compile_commands.json symlink - IDEs handle it differently

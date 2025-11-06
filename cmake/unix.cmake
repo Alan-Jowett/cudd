@@ -35,6 +35,15 @@ function(cudd_configure_libraries target_name)
   endif()
 endfunction()
 
+# Configure Unix-specific compiler warnings
+function(cudd_configure_warnings target_name)
+  if(NOT MSVC)
+    # Treat warnings as errors for GCC and Clang
+    target_compile_options(${target_name} PRIVATE -Werror)
+    message(STATUS "Configured ${CMAKE_CXX_COMPILER_ID} to treat warnings as errors")
+  endif()
+endfunction()
+
 # Configure Unix-specific development tools
 function(cudd_configure_dev_tools)
   if(PROJECT_IS_TOP_LEVEL AND UNIX)

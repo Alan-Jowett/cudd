@@ -38,6 +38,7 @@ option(CUDD_BUILD_CPP_API "Build C++ API" ON)
 option(CUDD_BUILD_SHARED_LIBS "Build CUDD as a shared library" OFF)
 option(CUDD_BUILD_WITH_STATS "Build CUDD with statistics" OFF)
 option(CUDD_BUILD_TESTS "Build CUDD tests" OFF)
+option(CUDD_TREAT_WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 
 # option(BUILD_API_DOCS "Build API documentation with Doxygen" OFF)
 # option(BUILD_USER_GUIDES "Build user guides with LaTeX" OFF)
@@ -188,6 +189,11 @@ add_library(cudd::cudd ALIAS cudd)
 add_library(Cudd::cudd ALIAS cudd)
 
 cudd_configure_libraries(cudd)
+
+# Configure compiler warnings if enabled
+if(CUDD_TREAT_WARNINGS_AS_ERRORS)
+  cudd_configure_warnings(cudd)
+endif()
 
 # Include directories (build and install time)
 target_include_directories(cudd PUBLIC
