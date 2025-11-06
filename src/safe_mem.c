@@ -78,6 +78,17 @@ extern "C" {
  */
 void (*MMoutOfMemory)(size_t) = MMout_of_memory;
 
+/**
+ * @brief Function pointer for out-of-memory injection callback.
+ * 
+ * This function pointer can be set by test applications to inject
+ * out-of-memory failures at runtime. If not NULL, this function is
+ * called before each memory allocation attempt. If it returns non-zero,
+ * the allocation will fail immediately without calling malloc/realloc.
+ * The parameter is the requested allocation size.
+ */
+int (*MMoutOfMemoryInjector)(size_t) = NULL;
+
 #ifdef __cplusplus
 }
 #endif
@@ -104,6 +115,13 @@ MMalloc(size_t size)
 {
     void *p;
 
+    /* Check if out-of-memory injection is enabled and should trigger */
+    if (MMoutOfMemoryInjector != NULL && (*MMoutOfMemoryInjector)(size)) {
+        /* Simulate allocation failure */
+        if (MMoutOfMemory != 0) (*MMoutOfMemory)(size);
+        return NIL(void);
+    }
+
     if ((p = malloc(size)) == NIL(void)) {
 	if (MMoutOfMemory != 0 ) (*MMoutOfMemory)(size);
 	return NIL(void);
@@ -119,6 +137,13 @@ void *
 MMrealloc(void *obj, size_t size)
 {
     void *p;
+
+    /* Check if out-of-memory injection is enabled and should trigger */
+    if (MMoutOfMemoryInjector != NULL && (*MMoutOfMemoryInjector)(size)) {
+        /* Simulate allocation failure */
+        if (MMoutOfMemory != 0) (*MMoutOfMemory)(size);
+        return NIL(void);
+    }
 
     if ((p = realloc(obj, size)) == NIL(void)) {
 	if (MMoutOfMemory != 0 ) (*MMoutOfMemory)(size);
