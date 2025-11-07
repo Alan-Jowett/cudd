@@ -25,6 +25,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(GNUInstallDirs)
+
 # ============================================================================ #
 # Settings
 # ============================================================================ #
@@ -169,18 +171,13 @@ else()
   add_library(cudd STATIC ${CUDD_SOURCES})
 endif()
 add_library(cudd::cudd ALIAS cudd)
-add_library(Cudd::cudd ALIAS cudd)
-
-# Link the math library (libm)
-# find_library(MATH_LIBRARY m REQUIRED)
-# target_link_libraries(cudd PUBLIC ${MATH_LIBRARY})
 
 # Include directories (build and install time)
 target_include_directories(cudd PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/include>  
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-  $<INSTALL_INTERFACE:include>
+  $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 # Define properties for the library
@@ -205,17 +202,23 @@ endif()
 ### Export and Install
 ###
 
-include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
 # Install the cudd library
 install(TARGETS cudd
   EXPORT cuddTargets
-  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT Runtime
-  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT Runtime 
-  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT Development
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cudd COMPONENT Development
+  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cudd
+)
+
+install( #7
+  EXPORT cuddTargets
+  NAMESPACE cudd::
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/cudd
+  FILE cuddTargets.cmake
 )
 
 # Install version/config files for find_package

@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cmake-test:
+  toolset-test:
     runs-on: ubuntu-24.04
     container:
       image: docker.io/gcc:${{ matrix.toolset-version }}

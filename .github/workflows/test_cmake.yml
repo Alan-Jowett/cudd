@@ -24,7 +24,7 @@ jobs:
           - '3.26' # rhel8, rhel9
           - '3.28' # ubuntu24.04, leap15.6
           - '3.30' # rhel10
-          - '3.31' # debian13
+          - '3.31' # debian13, leap16.0
           - 'latest'
         build_shared_libs: ['ON', 'OFF']
 
