@@ -32,12 +32,11 @@ include(GNUInstallDirs)
 # Settings
 # ============================================================================ #
 
-option(BUILD_TESTING "" OFF)
 option(CUDD_RECONFIGURE_SYSTEM "Configure system variables" OFF)
 option(CUDD_BUILD_CPP_API "Build C++ API" ON)
 option(CUDD_BUILD_SHARED_LIBS "Build CUDD as a shared library" OFF)
 option(CUDD_BUILD_WITH_STATS "Build CUDD with statistics" OFF)
-option(CUDD_BUILD_TESTS "Build CUDD tests" ${BUILD_TESTING})
+option(CUDD_BUILD_TESTS "Build CUDD tests" OFF)
 
 # option(BUILD_API_DOCS "Build API documentation with Doxygen" OFF)
 # option(BUILD_USER_GUIDES "Build user guides with LaTeX" OFF)
