@@ -43,6 +43,7 @@ jobs:
         run: |
           cd /tmp/build
           lcov --capture --initial --directory . --output-file coverage_base.info --ignore-errors unused
+          lcov --extract coverage_base.info "${GITHUB_WORKSPACE}/src/*" "${GITHUB_WORKSPACE}/src/*" --output-file coverage_base.info --ignore-errors unused
           lcov --list coverage_base.info --ignore-errors unused
 
       - name: Run tests
