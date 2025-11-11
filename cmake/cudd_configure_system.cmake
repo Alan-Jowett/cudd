@@ -127,7 +127,7 @@ CHECK_C_SOURCE_COMPILES(
   " HAVE_IEEE_754)
 
 configure_file(
-  ${CMAKE_SOURCE_DIR}/cmake/config.h.in
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in
   ${CMAKE_BINARY_DIR}/src/config.h
 )
 message(STATUS "CUDD reconfiguration complete.")
